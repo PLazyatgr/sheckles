@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Menu Pembelian Shekles</title>
+<style>
+  /* CSS tetap sama */
+  body {
+    background-color: #800080;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    color: #fff;
+    position: relative;
+  }
+  .garis-3 {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    width: 30px;
+    height: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 9999;
+  }
+  .garis-3 div {
+    height: 4px;
+    background-color: white;
+    border-radius: 2px;
+  }
+  .menu {
+    position: fixed;
+    top: 40px;
+    left: 10px;
+    background-color: #ccc;
+    padding: 10px;
+    border-radius: 8px;
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 9998;
+  }
+  .menu button {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 120px;
+    font-size: 1em;
+  }
+  .active {
+    background-color: #888;
+  }
+  .container {
+    max-width: 1200px;
+    margin: auto;
+  }
+  h1 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  /* Penempatan deskripsi setelah list */
+  .pengumuman {
+    margin-top: 30px;
+    padding: 15px;
+    background-color: rgba(255,255,255,0.2);
+    border-radius: 8px;
+  }
+  .pengumuman p {
+    margin: 5px 0;
+  }
+  /* Produk grid tetap sama */
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .product-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .label-produk {
+    background-color: #007bff;
+    color: #fff;
+    font-size: 1.2em;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-weight: bold;
+    text-align: center;
+    width: fit-content;
+    margin: 0 auto 8px auto;
+  }
+  .product {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 300px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  h2 {
+    margin: 0 0 10px 0;
+  }
+  .price {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+  .beli {
+    display: inline-block;
+    padding: 10px 20px;
+    background: linear-gradient(270deg, #ff0000, #ffff00, #00ff00, #00ffff, #ff00ff);
+    background-size: 1000% 1000%;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 8px;
+    text-decoration: none;
+    width: 100px;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    animation: rainbowColor 3s linear infinite;
+  }
+  @keyframes rainbowColor {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+  }
+  .beli:hover {
+    opacity: 0.9;
+  }
+  @keyframes moveUpAndShake {
+    0% { transform: translateY(0); }
+    30% { transform: translateY(-20px); }
+    50% { transform: translateY(0); }
+    70% { transform: translateY(-10px) rotate(3deg); }
+    80% { transform: translateY(0) rotate(-3deg); }
+    100% { transform: translateY(0); }
+  }
+  .animate-click {
+    animation: moveUpAndShake 1s forwards;
+  }
+</style>
+</head>
+<body>
+
+<!-- Tombol garis tiga (menu toggle) -->
+<div class="garis-3" id="menu-toggle" title="Menu">
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+
+<!-- Menu dropdown -->
+<div class="menu" id="side-menu">
+  <button id="btn-sheckles">Sheckles</button>
+  <button id="btn-sprinkler">Sprinkler</button>
+</div>
+
+<div class="container">
+  <h1>Sheckles Grow A Garden</h1>
+  <!-- Tempatkan deskripsi di bawah judul, sebelum list produk -->
+  <!-- Tapi sesuai permintaan, kita taruh di bawah list -->
+  <!-- Jadi, awalnya hanya judul saja -->
+  
+  <div class="product-grid">
+    <!-- Produk 1 -->
+    <div class="product-wrapper">
+      <div class="label-produk">GROW A GARDEN</div>
+      <div class="product">
+        <h2>10m Shekles</h2>
+        <div class="price">Rp 1.000</div>
+        <a href="#" class="beli">BELI</a>
+      </div>
+    </div>
+    <!-- Produk 2 -->
+    <div class="product-wrapper">
+      <div class="label-produk">GROW A GARDEN</div>
+      <div class="product">
+        <h2>20m Shekles</h2>
+        <div class="price">Rp 1.500</div>
+        <a href="#" class="beli">BELI</a>
+      </div>
+    </div>
+    <!-- Produk 3 -->
+    <div class="product-wrapper">
+      <div class="label-produk">GROW A GARDEN</div>
+      <div class="product">
+        <h2>100m Shekles</h2>
+        <div class="price">Rp 9.000</div>
+        <a href="#" class="beli">BELI</a>
+      </div>
+    </div>
+    <!-- Produk 4 -->
+    <div class="product-wrapper">
+      <div class="label-produk">GROW A GARDEN</div>
+      <div class="product">
+        <h2>200m Shekles</h2>
+        <div class="price">Rp 18.000</div>
+        <a href="#" class="beli">BELI</a>
+      </div>
+    </div>
+    <!-- Produk 5 -->
+    <div class="product-wrapper">
+      <div class="label-produk">GROW A GARDEN</div>
+      <div class="product">
+        <h2>300m Shekles</h2>
+        <div class="price">Rp 27.000</div>
+        <a href="#" class="beli">BELI</a>
+      </div>
+    </div>
+    <!-- Produk 6 -->
+    <div class="product-wrapper">
+      <div class="label-produk">GROW A GARDEN</div>
+      <div class="product">
+        <h2>400m Shekles</h2>
+        <div class="price">Rp 36.000</div>
+        <a href="#" class="beli">BELI</a>
+      </div>
+    </div>
+    <!-- Produk 7 -->
+    <div class="product-wrapper">
+      <div class="label-produk">GROW A GARDEN</div>
+      <div class="product">
+        <h2>500m Shekles</h2>
+        <div class="price">Rp 40.000</div>
+        <a href="#" class="beli">BELI</a>
+      </div>
+    </div>
+    <!-- Produk 8 -->
+    <div class="product-wrapper">
+      <div class="label-produk">GROW A GARDEN</div>
+      <div class="product">
+        <h2>600m Shekles</h2>
+        <div class="price">Rp 45.000</div>
+        <a href="#" class="beli">BELI</a>
+      </div>
+    </div>
+    <!-- Produk 9 -->
+    <div class="product-wrapper">
+      <div class="label-produk">GROW A GARDEN</div>
+      <div class="product">
+        <h2>700m Shekles</h2>
+        <div class="price">Rp 50.000</div>
+        <a href="#" class="beli">BELI</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sekarang, tempatkan deskripsi di bawah list produk -->
+  <div class="pengumuman" style="margin-top:30px;">
+    <p style="margin: 5px 0; font-weight: bold;">WAJIB BACA DESKRIPSI!</p>
+    <p style="margin: 5px 0;">
+      1. Teruntuk pembeli sheckles akan diberikan menggunakan buah<br>
+      2. Pemberian buah dilakukan dengan via trade<br>
+      3. Trade dilakukan di private server jadi pembeli harus join ke private server untuk melakukan trading. Private server akan diberikan jika kamu membeli<br>
+    </p>
+    <p style="margin: 5px 0;">
+      4. Setiap buah harganya wajib lebih, tidak ada yang pas dan tidak ada yang kurang. Pembeli akan mendapatkan uang lebih (bonus), minimal bonus 4-5m atau lebih<br>
+      5. Jika kamu ingin membeli dan menekan beli, kamu akan diarahkan ke WhatsApp admin untuk pembayaran dan transaksi, serta mendapatkan link private server dari situ<br>
+      TERIMAKASI
+    </p>
+  </div>
+</div>
+
+<script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const sideMenu = document.getElementById('side-menu');
+
+  // Toggle menu muncul/hilang
+  menuToggle.addEventListener('click', () => {
+    if (sideMenu.style.display === 'flex') {
+      sideMenu.style.display = 'none';
+    } else {
+      sideMenu.style.display = 'flex';
+    }
+  });
+
+  // Halaman Sheckles
+  let currentPage = 'sheckles';
+
+  const btnSheckles = document.getElementById('btn-sheckles');
+  const btnSprinkler = document.getElementById('btn-sprinkler');
+
+  function updateActiveButton() {
+    if (currentPage === 'sheckles') {
+      btnSheckles.classList.add('active');
+      btnSprinkler.classList.remove('active');
+    } else if (currentPage === 'sprinkler') {
+      btnSheckles.classList.remove('active');
+      btnSprinkler.classList.add('active');
+    }
+  }
+
+  // Tombol Sheckles
+  document.getElementById('btn-sheckles').addEventListener('click', () => {
+    // Sudah di sheckles, tidak perlu apa-apa
+  });
+
+  // Tombol Sprinkler
+  document.getElementById('btn-sprinkler').addEventListener('click', () => {
+    window.location.href = 'sprinkler.html'; // ganti sesuai nama file kamu
+  });
+
+  // Inisialisasi
+  updateActiveButton();
+
+  // Animasi tombol BELI
+  document.querySelectorAll('.beli').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      btn.classList.remove('animate-click');
+      void btn.offsetWidth;
+      btn.classList.add('animate-click');
+      btn.addEventListener('animationend', () => {
+        btn.classList.remove('animate-click');
+      }, { once: true });
+    });
+  });
+</script>
+</body>
+</html>
